@@ -99,24 +99,37 @@ Ext.onReady(function() {
                                 handler: function() {
                                     var vp = Ext.ComponentQuery.query('viewport')[0],
                                         vals = Ext.ComponentQuery.query('#formDataForm')[0].getValues(),
-                                        data = buildFieldData(getFormFields(vals.form), this.selRecs[0].get('data'));
-                                    new Ext.Window({
+                                        data = buildFieldData(getFormFields(vals.form), this.selRecs[0].get('data')),
+                                        url = (vals.form.substr(-2) === '15' ? 'registration-form.html' : 'health-history-form.html') + '?data=' + encodeURIComponent(Ext.encode(data));
+                                    window.open(url);
+                                    /*new Ext.Window({
                                         title: 'View Submission',
                                         width: vp.getWidth() * 0.9,
                                         height: vp.getHeight() * 0.9,
                                         layout: 'fit',
+                                        maximizable: true,
                                         modal: true,
+                                        tbar: [
+                                            {
+                                                text: 'Print',
+                                                handler: function() {
+                                                    var frame = this.up('window').getComponent(0).getEl().dom.contentWindow;
+                                                    frame.focus();
+                                                    frame.print();
+                                                }
+                                            }
+                                        ],
                                         items: [
                                             {
                                                 xtype: 'component',
                                                 autoEl: {
                                                     tag: 'iframe',
-                                                    src: (vals.form.substr(-2) === '15' ? 'registration-form.html' : 'health-history-form.html') + '?data=' + encodeURIComponent(Ext.encode(data)),
+                                                    src: url,
                                                     'data-bind': 'bindIframe: $data'
                                                 }
                                             }
                                         ]
-                                    }).show();
+                                    }).show();*/
                                 }
                             },
                             {
