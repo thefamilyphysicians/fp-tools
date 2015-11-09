@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Registration Form</title>
+        <meta name="author" content="The Family Physicians" />
+        <link href="http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="form.css">
+    </head>
+    <body>
+        <div class="form-container">
+            <div class="header">The Family Physicians PA.<br/>REGISTRATION FORM</div>
+            <table cellspacing=0 cellborder=0 border=0 width="90%" align="center" class="form-table">
+                <tbody>
+                    <tr>
+                        <td colspan=6><label>Today's Date: </label><span data-bind="text: todays_date"></span></td>
+                        <td colspan=6><label>PCP: </label><span data-bind="text: pcp"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">Patient Information</td>
+                    </tr>
+                    <tr>
+                        <td colspan=3><label>Patient's last name: </label><span data-bind="text: patient_last_name"></span></td>
+                        <td colspan=3><label>First: </label><span data-bind="text: patient_first_name"></span></td>
+                        <td colspan=3><label>Middle: </label><span data-bind="text: patient_middle_name"></span></td>
+                        <td colspan=3><label>Marital status: </label><span data-bind="text: marital_status"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=3><label>Is this your legal name? </label><span data-bind="text: is_legal_name"></span></td>
+                        <td colspan=3><label>If not, what is your leagal name? </label><span data-bind="text: legal_name"></span></td>
+                        <td colspan=3><label>Former name: </label><span data-bind="text: former_name"></span></td>
+                        <td><label>Birth date: </label><span data-bind="text: patient_birth_date"></span></td>
+                        <td><label>Age: </label><span data-bind="text: patient_age"></span></td>
+                        <td><label>Sex: </label><span data-bind="text: patient_sex"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12><label>Address: </label><span data-bind="text: patient_address"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=4><label>Social Security no.: </label><span data-bind="text: patient_ssn"></span></td>
+                        <td colspan=4><label>Home phone no.: </label><span data-bind="text: patient_home_phone"></span></td>
+                        <td colspan=4><label>Cell phone no.: </label><span data-bind="text: patient_cell_phone"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=4><label>Occupation: </label><span data-bind="text: patient_occupation"></span></td>
+                        <td colspan=4><label>Employer: </label><span data-bind="text: patient_employer"></span></td>
+                        <td colspan=4><label>Employer phone no.: </label><span data-bind="text: patient_employer_phone_number"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12><label>Why did you choose our clinic? </label><span data-bind="text: why_choose_clinic"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12><label>Other family members seen here: </label><span data-bind="text: other_family_members_seen"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">Insurance Information</td>
+                    </tr>
+                    <tr>
+                        <td colspan=3><label>Person responsible for bill: </label><span data-bind="text: bill_name"></span></td>
+                        <td colspan=3><label>Birth date: </label><span data-bind="text: bill_birth_date"></span></td>
+                        <td colspan=3><label>Address (if different) </label><span data-bind="text: bill_address"></span></td>
+                        <td colspan=3><label>Home phone no.: </label><span data-bind="text: bill_home_phone"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=6><label>Is this person a patient here? </label><span data-bind="text: bill_is_patient"></span></td>
+                        <td colspan=6><label>Is this patient covered by insurance? </label><span data-bind="text: bill_has_insurance"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=6><label>Please indicate primary insurance: </label><span data-bind="text: primary_insurance"></span></td>
+                        <td colspan=6><label>Other: </label><span data-bind="text: primary_insurance_other"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2><label>Subscriber's name: </label><span data-bind="text: primary_subscribers_name"></span></td>
+                        <td colspan=2><label>Subscriber's S.S. no.: </label><span data-bind="text: primary_subscribers_ssn"></span></td>
+                        <td colspan=2><label>Birth date: </label><span data-bind="text: primary_subscribers_birth_date"></span></td>
+                        <td colspan=2><label>Group no.: </label><span data-bind="text: primary_subscribers_group_no"></span></td>
+                        <td colspan=2><label>Policy no.: </label><span data-bind="text: primary_subscribers_policy_no"></span></td>
+                        <td colspan=2><label>Co-payment: </label><span data-bind="text: primary_subscribers_co_payment"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=6><label>Patient's relationship to subscriber: </label><span data-bind="text: relationship_to_primary_subscriber"></span></td>
+                        <td colspan=6><label>Other: </label><span data-bind="text: relationship_to_primary_subscriber_other"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=3><label>Name of secondary insurance (if applicable): </label><span data-bind="text: secondary_insurance"></span></td>
+                        <td colspan=3><label>Subscriber's name: </label><span data-bind="text: secondary_subscribers_name"></span></td>
+                        <td colspan=3><label>Group no.: </label><span data-bind="text: secondary_subscribers_group_no"></span></td>
+                        <td colspan=3><label>Policy no.: </label><span data-bind="text: secondary_subscribers_policy_no"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">In Case of Emergency</td>
+                    </tr>
+                    <tr>
+                        <td colspan=3><label>Name of local friend or relative: </label><span data-bind="text: emergency_name"></span></td>
+                        <td colspan=3><label>Relationship to patient: </label><span data-bind="text: emergency_relationship"></span></td>
+                        <td colspan=3><label>Home phone no.: </label><span data-bind="text: emergency_home_phone"></span></td>
+                        <td colspan=3><label>Work phone no.: </label><span data-bind="text: emergency_work_phone"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12>
+                            <label>The above information is true to the best of my knowledge. I authorize my insurance benefits be paid directly to the physician. I understand that I am financially responsible for any balance. I also authorize The Family Physicians PA. or insurance company to release any information required to process my claims.</label>
+                            <div class="signature">
+                                <img data-bind="attr: { src: signature }" />
+                                <label>Patient/Guardian signature</label>
+                            </div>
+                            <div class="signature-date">
+                                <span data-bind="text: form_date"></span>
+                                <label>Date</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var params = getQueryParameters(),
+                data = JSON.parse(decodeURIComponent(params.data)),
+                FormViewModel = function(d) {
+                    for (var f in data) {
+                        if (f.indexOf('address') !== -1) {
+                            data[f] = data[f].replace(/\n/g, ' | ');
+                        }
+                        this[f] = ko.observable(data[f] ? data[f] : '-');
+                    }
+                };
+            
+            ko.applyBindings(new FormViewModel(data));
+        });
+            
+        function getQueryParameters() {
+            return document.location.search.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+        }
+        </script>
+    </body>
+</html>

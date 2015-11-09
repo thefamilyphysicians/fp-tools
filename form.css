@@ -1,0 +1,67 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px;
+    font-size: 12px;
+    color: #0F0F1D;
+}
+
+.header {
+    color: #3F74B9;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.form-table {
+    border: 1px solid #7F7F7F;
+    margin-bottom: 20px;
+}
+
+.form-table td {
+    padding: 10px;
+    font-weight: 500;
+    border: 1px solid #AEAAAA;
+}
+
+.form-table td label {
+    font-weight: bold;
+}
+
+.form-table td.section-header {
+    background-color: #D5DCE4;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 0;
+    text-transform: uppercase;
+}
+
+.signature,
+.signature-date {
+    display: table-cell;
+    position: relative;
+}
+
+.signature label {
+    display: block;
+    padding-left: 38px;
+}
+
+.signature img {
+    max-width: 500px;
+}
+
+.signature-date label {
+    bottom: 0;
+    position: absolute;
+}
+
+.signature-date span {
+    position: absolute;
+    bottom: 40px;
+    width: 100px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #A5A5A5;
+}
