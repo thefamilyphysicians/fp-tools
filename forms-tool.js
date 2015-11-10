@@ -30,6 +30,14 @@ Ext.onReady(function() {
                                 value: params.form
                             },
                             {
+                                xtype: 'textfield',
+                                fieldLabel: 'Form',
+                                name: 'encryption_password',
+                                allowBlank: false,
+                                inputType: 'password',
+                                value: params.encpw
+                            },
+                            {
                                 xtype: 'hidden',
                                 name: 'data',
                                 value: true
