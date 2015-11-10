@@ -31,7 +31,7 @@ Ext.onReady(function() {
                             },
                             {
                                 xtype: 'textfield',
-                                fieldLabel: 'Form',
+                                fieldLabel: 'Password',
                                 name: 'encryption_password',
                                 allowBlank: false,
                                 inputType: 'password',
