@@ -20,14 +20,30 @@ Ext.onReady(function() {
                                 fieldLabel: 'Key',
                                 name: 'oauth_token',
                                 allowBlank: false,
-                                value: params.key
+                                value: params.key,
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keydown: function(c, e, opts) {
+                                        if (e.keyCode === 13) {
+                                            loadSubmissions();
+                                        }
+                                    }
+                                }
                             },
                             {
                                 xtype: 'textfield',
                                 fieldLabel: 'Form',
                                 name: 'form',
                                 allowBlank: false,
-                                value: params.form
+                                value: params.form,
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keydown: function(c, e, opts) {
+                                        if (e.keyCode === 13) {
+                                            loadSubmissions();
+                                        }
+                                    }
+                                }
                             },
                             {
                                 xtype: 'textfield',
@@ -35,7 +51,15 @@ Ext.onReady(function() {
                                 name: 'encryption_password',
                                 allowBlank: false,
                                 inputType: 'password',
-                                value: params.encpw
+                                value: params.encpw,
+                                enableKeyEvents: true,
+                                listeners: {
+                                    keydown: function(c, e, opts) {
+                                        if (e.keyCode === 13) {
+                                            loadSubmissions();
+                                        }
+                                    }
+                                }
                             },
                             {
                                 xtype: 'hidden',
@@ -52,6 +76,7 @@ Ext.onReady(function() {
                             },
                             {
                                 text: 'Load Submissions',
+                                itemId: 'loadSubmissionsBtn',
                                 formBind: true,
                                 disabled: true,
                                 handler: function() {
@@ -69,10 +94,18 @@ Ext.onReady(function() {
                                                 var d = Ext.decode(response.responseText),
                                                     fields = getFormFields(vals.form);
                                                 Ext.each(d.submissions, function(submission, i) {
-                                                    d.submissions[i].last_name = submission.data[fields['patient_last_name']].value;
-                                                    d.submissions[i].first_name = submission.data[fields['patient_first_name']].value;
-                                                    d.submissions[i].middle_name = submission.data[fields['patient_middle_name']].value;
-                                                    d.submissions[i].date = submission.data[fields['form_date']].value;
+                                                    if (isRegForm(vals.form)) {
+                                                        d.submissions[i].last_name = submission.data[fields['patient_last_name']].value;
+                                                        d.submissions[i].first_name = submission.data[fields['patient_first_name']].value;
+                                                        d.submissions[i].middle_name = submission.data[fields['patient_middle_name']].value;
+                                                        d.submissions[i].date = submission.data[fields['form_date']].value;
+                                                    } else {
+                                                        var name = submission.data[fields['name']].value.split(' ');
+                                                        d.submissions[i].last_name = name.pop();
+                                                        d.submissions[i].first_name = name.join(' ');
+                                                        d.submissions[i].middle_name = '';
+                                                        d.submissions[i].date = submission.data[fields['form_date']].value;
+                                                    }
                                                 });
                                                 Ext.ComponentQuery.query('#formDataGrid')[0].getStore().loadData(d.submissions);
                                                 vp.getEl().unmask();
@@ -102,13 +135,14 @@ Ext.onReady(function() {
                         tbar: [
                             {
                                 text: 'View',
+                                itemId: 'submissionViewBtn',
                                 requiresSelection: true,
                                 disabled: true,
                                 handler: function() {
                                     var vp = Ext.ComponentQuery.query('viewport')[0],
                                         vals = Ext.ComponentQuery.query('#formDataForm')[0].getValues(),
                                         data = buildFieldData(getFormFields(vals.form), this.selRecs[0].get('data')),
-                                        url = (vals.form.substr(-2) === '15' ? 'registration-form.html' : 'health-history-form.html') + '?data=' + encodeURIComponent(Ext.encode(data));
+                                        url = (isRegForm(vals.form) ? 'registration-form.html' : 'health-history-form.html') + '?data=' + encodeURIComponent(Ext.encode(data));
                                     window.open(url);
                                     /*new Ext.Window({
                                         title: 'View Submission',
@@ -196,6 +230,9 @@ Ext.onReady(function() {
                                     b[selected.length ? 'enable' : 'disable']();
                                     b.selRecs = selected;
                                 });
+                            },
+                            itemdblclick: function() {
+                                Ext.ComponentQuery.query('#submissionViewBtn')[0].handler();
                             }
                         }
                     }
@@ -204,8 +241,20 @@ Ext.onReady(function() {
         ]
     });
     
+    if (params.key && params.form && params.encpw) {
+        loadSubmissions();
+    }
+    
+    function loadSubmissions() {
+        Ext.ComponentQuery.query('#loadSubmissionsBtn')[0].handler();
+    }
+    
+    function isRegForm(form) {
+        return form.substr(-2) === '15';
+    }
+    
     function getFormFields(form) {
-        if (form.substr(-2) === '15') {
+        if (isRegForm(form)) {
             return {
                 todays_date: 37223250,
                 patient_last_name: 37223607,
@@ -257,7 +306,70 @@ Ext.onReady(function() {
             };
         } else {
             return {
-                
+                date: 37224213,
+                name: 37224214,
+                date_of_birth: 37224215,
+                age: 37224216,
+                general_health: 37224217,
+                asthma: 37224242,
+                asthma_explain: 37224243,
+                bleeding_disorders: 37224244,
+                bleeding_disorders_explain: 37224245,
+                blood_pressure: 37224247,
+                blood_pressure_explain: 37224248,
+                copd: 37224249,
+                copd_explain: 37224250,
+                diabetes: 37224251,
+                diabetes_explain: 37224252,
+                ear_sinus: 37224258,
+                ear_sinus_explain: 37224259,
+                fainting: 37224264,
+                fainting_explain: 37224265,
+                gi_problems: 37224267,
+                gi_problems_explain: 37224268,
+                kidney_disease: 37224269,
+                kidney_disease_explain: 37224270,
+                heart_disease: 37224271,
+                heart_disease_explain: 37224272,
+                learning_disorders: 37224280,
+                learning_disorders_explain: 37224281,
+                menstrual_problems: 37224282,
+                menstrual_problems_explain: 37224283,
+                musculo_skeletal: 37224284,
+                musculo_skeletal_explain: 37224285,
+                psych: 37224286,
+                psych_explain: 37224287,
+                seizures: 37224318,
+                seizures_explain: 37224319,
+                sickle_cell_disease: 37224320,
+                sickle_cell_disease_explain: 37224321,
+                sleep_disorders: 37224322,
+                sleep_disorders_explain: 37224323,
+                stroke: 37224324,
+                stroke_explain: 37224325,
+                surgery: 37224326,
+                surgery_explain: 37224327,
+                thyroid_disease: 37224328,
+                thyroid_disease_explain: 37224329,
+                serious_injury: 37224330,
+                serious_injury_explain: 37224331,
+                other: 37224347,
+                other_explain: 37224348,
+                med1: 37224350,
+                med1_dosage: 37224352,
+                med1_reason: 37224353,
+                med2: 37224354,
+                med2_dosage: 37224355,
+                med2_reason: 37224356,
+                med3: 37224357,
+                med3_dosage: 37224358,
+                med3_reason: 37224359,
+                med4: 37224360,
+                med4_dosage: 37224361,
+                med4_reason: 37224362,
+                allergies: 37224363,
+                signature: 37224364,
+                form_date: 37224365
             };
         }
     }

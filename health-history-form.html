@@ -6,18 +6,242 @@
         <title>Registration Form</title>
         <meta name="author" content="The Family Physicians" />
         <link href="http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="form.css">
     </head>
     <body>
-        <div class="form-container">
-            <span data-bind="text: todays_date"></span>
+        <div class="health-history-form form-container">
+            <div class="header">ADULT HEALTH HISTORY</div>
+            <table cellspacing=0 cellborder=0 border=0 width="90%" align="center">
+                <tbody>
+                    <tr>
+                        <td colspan=8></td>
+                        <td><label>Date</label></td>
+                        <td colspan=3 class="input"><span data-bind="text: date"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2><label>Name</label></td>
+                        <td colspan=10 class="input"><span data-bind="text: name"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2><label>Date of birth</label></td>
+                        <td colspan=4 class="input"><span data-bind="text: date_of_birth"></span></td>
+                        <td colspan=2></td>
+                        <td><label>Age</label></td>
+                        <td colspan=4 class="input"><span data-bind="text: age"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=2><label>General Health</label></td>
+                        <td colspan=10 class="input"><span data-bind="text: general_health"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">Are you currently or have you ever been treated for</td>
+                    </tr>
+                    <tr class="border-header-row">
+                        <td colspan=2 width="8.333%">Yes</td>
+                        <td colspan=2 width="8.333%">No</td>
+                        <td colspan=4>Condition</td>
+                        <td colspan=4>Explain</td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': asthma() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': asthma() === 'No' }"></span></td>
+                        <td colspan=4><span>Asthma</span></td>
+                        <td colspan=4><span data-bind="text: asthma_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': bleeding_disorders() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': bleeding_disorders() === 'No' }"></span></td>
+                        <td colspan=4><span>Bleeding Disorders</span></td>
+                        <td colspan=4><span data-bind="text: bleeding_disorders_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': blood_pressure() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': blood_pressure() === 'No' }"></span></td>
+                        <td colspan=4><span>Blood Pressure</span></td>
+                        <td colspan=4><span data-bind="text: blood_pressure_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': copd() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': copd() === 'No' }"></span></td>
+                        <td colspan=4><span>COPD</span></td>
+                        <td colspan=4><span data-bind="text: copd_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': diabetes() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': diabetes() === 'No' }"></span></td>
+                        <td colspan=4><span>Diabetes</span></td>
+                        <td colspan=4><span data-bind="text: diabetes_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': ear_sinus() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': ear_sinus() === 'No' }"></span></td>
+                        <td colspan=4><span>Ear/sinus</span></td>
+                        <td colspan=4><span data-bind="text: ear_sinus_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': fainting() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': fainting() === 'No' }"></span></td>
+                        <td colspan=4><span>Fainting</span></td>
+                        <td colspan=4><span data-bind="text: fainting_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': gi_problems() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': gi_problems() === 'No' }"></span></td>
+                        <td colspan=4><span>Gastro-intestinal problems</span></td>
+                        <td colspan=4><span data-bind="text: gi_problems_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': heart_disease() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': heart_disease() === 'No' }"></span></td>
+                        <td colspan=4><span>Heart Disease</span></td>
+                        <td colspan=4><span data-bind="text: heart_disease_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': kidney_disease() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': kidney_disease() === 'No' }"></span></td>
+                        <td colspan=4><span>Kidney Disease</span></td>
+                        <td colspan=4><span data-bind="text: kidney_disease_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': learning_disorders() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': learning_disorders() === 'No' }"></span></td>
+                        <td colspan=4><span>Learning Disorders</span></td>
+                        <td colspan=4><span data-bind="text: learning_disorders_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': menstrual_problems() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': menstrual_problems() === 'No' }"></span></td>
+                        <td colspan=4><span>Menstrual Problems</span></td>
+                        <td colspan=4><span data-bind="text: menstrual_problems_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': musculo_skeletal() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': musculo_skeletal() === 'No' }"></span></td>
+                        <td colspan=4><span>Musculo-Skeletal</span></td>
+                        <td colspan=4><span data-bind="text: musculo_skeletal_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': psych() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': psych() === 'No' }"></span></td>
+                        <td colspan=4><span>Psychological/psychiatric</span></td>
+                        <td colspan=4><span data-bind="text: psych_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': seizures() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': seizures() === 'No' }"></span></td>
+                        <td colspan=4><span>Seizures</span></td>
+                        <td colspan=4><span data-bind="text: seizures_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': sickle_cell_disease() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': sickle_cell_disease() === 'No' }"></span></td>
+                        <td colspan=4><span>Sickle Cell Disease</span></td>
+                        <td colspan=4><span data-bind="text: sickle_cell_disease_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': sleep_disorders() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': sleep_disorders() === 'No' }"></span></td>
+                        <td colspan=4><span>Sleep Disorders</span></td>
+                        <td colspan=4><span data-bind="text: sleep_disorders_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': stroke() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': stroke() === 'No' }"></span></td>
+                        <td colspan=4><span>Stroke</span></td>
+                        <td colspan=4><span data-bind="text: stroke_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': surgery() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': surgery() === 'No' }"></span></td>
+                        <td colspan=4><span>Surgery</span></td>
+                        <td colspan=4><span data-bind="text: surgery_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': thyroid_disease() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': thyroid_disease() === 'No' }"></span></td>
+                        <td colspan=4><span>Thyroid Disease</span></td>
+                        <td colspan=4><span data-bind="text: thyroid_disease_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': serious_injury() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': serious_injury() === 'No' }"></span></td>
+                        <td colspan=4><span>Serious Injury</span></td>
+                        <td colspan=4><span data-bind="text: serious_injury_explain"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': other() === 'Yes' }"></span></td>
+                        <td colspan=2><span data-bind="css: { 'fa fa-check': other() === 'No' }"></span></td>
+                        <td colspan=4><span>Other</span></td>
+                        <td colspan=4><span data-bind="text: other_explain"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">List all medications you are currently taking, including over-the-counter drugs and herbal supplements</td>
+                    </tr>
+                    <tr class="border-header-row">
+                        <td colspan=4>Medication</td>
+                        <td colspan=4>Dosage</td>
+                        <td colspan=4>Reason</td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=4><span data-bind="text: med1"></span></td>
+                        <td colspan=4><span data-bind="text: med1_dosage"></span></td>
+                        <td colspan=4><span data-bind="text: med1_reason"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=4><span data-bind="text: med2"></span></td>
+                        <td colspan=4><span data-bind="text: med2_dosage"></span></td>
+                        <td colspan=4><span data-bind="text: med2_reason"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=4><span data-bind="text: med3"></span></td>
+                        <td colspan=4><span data-bind="text: med3_dosage"></span></td>
+                        <td colspan=4><span data-bind="text: med3_reason"></span></td>
+                    </tr>
+                    <tr class="border-row">
+                        <td colspan=4><span data-bind="text: med4"></span></td>
+                        <td colspan=4><span data-bind="text: med4_dosage"></span></td>
+                        <td colspan=4><span data-bind="text: med4_reason"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="section-header">Allergies</td>
+                    </tr>
+                    <tr>
+                        <td colspan=12 class="text-area"><span data-bind="text: allergies"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan=12>
+                            <div class="signature">
+                                <img data-bind="attr: { src: signature }" />
+                                <label>Patient/Guardian signature</label>
+                            </div>
+                            <div class="signature-date">
+                                <span data-bind="text: form_date"></span>
+                                <label>Date</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function() {
-debugger; 
+            var params = getQueryParameters(),
+                data = JSON.parse(decodeURIComponent(params.data)),
+                FormViewModel = function(d) {
+                    for (var f in data) {
+                        this[f] = ko.observable(data[f] ? data[f] : '-');
+                    }
+                };
+            
+            ko.applyBindings(new FormViewModel(data));
         });
+            
+        function getQueryParameters() {
+            return document.location.search.replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+        }
         </script>
     </body>
 </html>

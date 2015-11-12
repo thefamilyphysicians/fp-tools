@@ -7,37 +7,6 @@ html, body {
     color: #0F0F1D;
 }
 
-.header {
-    color: #3F74B9;
-    font-size: 20px;
-    line-height: 28px;
-    text-align: center;
-    padding: 10px 0;
-}
-
-.form-table {
-    border: 1px solid #7F7F7F;
-    margin-bottom: 20px;
-}
-
-.form-table td {
-    padding: 10px;
-    font-weight: 500;
-    border: 1px solid #AEAAAA;
-}
-
-.form-table td label {
-    font-weight: bold;
-}
-
-.form-table td.section-header {
-    background-color: #D5DCE4;
-    font-weight: bold;
-    text-align: center;
-    padding: 3px 0;
-    text-transform: uppercase;
-}
-
 .signature,
 .signature-date {
     display: table-cell;
@@ -64,4 +33,94 @@ html, body {
     width: 100px;
     padding-bottom: 5px;
     border-bottom: 2px solid #A5A5A5;
+}
+
+.registration-form .header {
+    color: #3F74B9;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.registration-form .form-table {
+    border: 1px solid #7F7F7F;
+    margin-bottom: 20px;
+}
+
+.registration-form .form-table td {
+    padding: 10px;
+    font-weight: 500;
+    border: 1px solid #AEAAAA;
+}
+
+.registration-form .registration-form .form-table td label {
+    font-weight: bold;
+}
+
+.registration-form .form-table td.section-header {
+    background-color: #D5DCE4;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px 0;
+    text-transform: uppercase;
+}
+
+.health-history-form {
+    color: #000;
+    font-size: 16px;
+}
+
+.health-history-form .header {
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.health-history-form td {
+    padding: 10px 5px 5px 5px;
+}
+
+.health-history-form td.section-header {
+    font-weight: bold;
+    padding-top: 35px;
+}
+
+.health-history-form td.input {
+    border-bottom: 1px solid black;
+}
+
+.health-history-form td.text-area {
+    border: 1px solid black;
+}
+
+.health-history-form td.text-area span {
+    display: block;
+    min-height: 60px;
+}
+
+.health-history-form td label {
+    font-weight: 500;
+}
+
+.health-history-form td span.fa {
+    display: block;
+    text-align: center;
+}
+
+.health-history-form tr.border-header-row td {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.health-history-form tr.border-row td {
+    border: 1px solid black;
+    border-top: none;
+    border-right: none;
+}
+
+.health-history-form tr.border-row td:last-of-type {
+    border-right: 1px solid black;
 }
